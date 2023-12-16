@@ -3,6 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { useRooms } from "@/context/roomsContext";
+import { XMarkIcon } from "@heroicons/react/20/solid";
 
 export const BookingDialog = () => {
   const { bookingRoom, setBookingRoom, updateRoom } = useRooms();
@@ -130,8 +131,8 @@ export const BookingDialog = () => {
                   </button>
                 </form>
 
-                <Dialog.Close className="absolute top-6 right-6">
-                  X
+                <Dialog.Close className="absolute top-6 right-6 text-gray-800">
+                  <XMarkIcon className="w-6 h-6" />
                 </Dialog.Close>
               </motion.div>
             </Dialog.Content>

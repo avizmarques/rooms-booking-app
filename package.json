@@ -10,6 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "@radix-ui/react-dialog": "^1.0.5",
     "framer-motion": "^10.16.16",
     "next": "14.0.4",
