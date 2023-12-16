@@ -33,7 +33,7 @@ export default function Home({
         data-testid="rooms-list"
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5 mt-[72px]"
       >
-        {displayedRooms.map((room, i) => (
+        {displayedRooms.map(({ room, i }: { room: Room; i: number }) => (
           <RoomCard room={room} key={i} />
         ))}
       </ul>
