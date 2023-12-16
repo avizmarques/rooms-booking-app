@@ -27,7 +27,10 @@ export const BookingDialog = () => {
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-40 bg-black opacity-30" />
 
-          <Dialog.Content className="fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[90vw] max-w-[450px] bg-white rounded-md py-6 px-4 md:px-6 z-50">
+          <Dialog.Content
+            data-testid="booking-dialog"
+            className="fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[90vw] max-w-[450px] bg-white rounded-md py-6 px-4 md:px-6 z-50"
+          >
             <Dialog.Title className="text-lg font-bold text-theme-black">
               Book meeting room {bookingRoom?.name}
             </Dialog.Title>
@@ -35,7 +38,11 @@ export const BookingDialog = () => {
               Spots available: {bookingRoom?.spots}
             </Dialog.Description>
 
-            <form onSubmit={onSubmit} className="mt-4 flex flex-col">
+            <form
+              data-testid="booking-form"
+              onSubmit={onSubmit}
+              className="mt-4 flex flex-col"
+            >
               <div>
                 <label
                   htmlFor="name"
