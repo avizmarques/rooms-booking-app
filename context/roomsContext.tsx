@@ -5,6 +5,8 @@ type RoomsContextType = {
   rooms: Room[];
   setRooms: (rooms: Room[]) => void;
   updateRoom: ({ name, spotsToBook }: UpdateRoomProps) => void;
+  bookingRoom: Room | null;
+  setBookingRoom: (room: Room | null) => void;
 };
 
 type UpdateRoomProps = {
@@ -16,10 +18,14 @@ const RoomsContext = createContext<RoomsContextType>({
   rooms: [],
   setRooms: () => {},
   updateRoom: () => {},
+  bookingRoom: null,
+  setBookingRoom: () => {},
 });
 
 export function RoomsProvider({ children }: { children: ReactNode }) {
   const [rooms, setRooms] = useState<Room[]>([]);
+  const [bookingRoom, setBookingRoom] =
+    useState<RoomsContextType["bookingRoom"]>(null);
 
   const updateRoom = ({ name, spotsToBook }: UpdateRoomProps) => {
     const updatedRooms = rooms.map((room) =>
@@ -32,7 +38,9 @@ export function RoomsProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <RoomsContext.Provider value={{ rooms, setRooms, updateRoom }}>
+    <RoomsContext.Provider
+      value={{ rooms, setRooms, updateRoom, bookingRoom, setBookingRoom }}
+    >
       {children}
     </RoomsContext.Provider>
   );

@@ -3,6 +3,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { RoomCard } from "@/components/RoomCard";
 import { useRooms } from "@/context/roomsContext";
 import { useEffect } from "react";
+import { BookingDialog } from "@/components/BookingDialog";
 
 export type Room = {
   name: string;
@@ -33,6 +34,8 @@ export default function Home({
           <RoomCard room={room} key={i} />
         ))}
       </ul>
+
+      <BookingDialog />
     </main>
   );
 }
