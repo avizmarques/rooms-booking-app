@@ -41,6 +41,8 @@ I spent 2 hours setting up and building this application, plus about 30 mins wri
   - **Pixel perfection:**
     I had to take a liberty here and there with the design, since some things in the figma were unusual: for example in the main component, the padding is 30 on one side and 38 in the other. I believe this is unintended (and I can't contact the designer in this case), so I corrected it and centered the container. There might a couple of situations like this.
 
+    Furthermore, I don't own the Helvetica font used in the design so I used a similar sans.
+
   - **Input fields:**
     I have access to tailwind ui so I used the input fields from there to save some time and build a form really quickly.
 
@@ -61,4 +63,4 @@ I spent 2 hours setting up and building this application, plus about 30 mins wri
 
 - Testing: I tested the main parts of the UI but I didn't make tests for my context hook which actually controls all the state, this should definitely be addressed.
 
-- More time spent thinking about hover effects and user interactions: I added some basic hover effects but I would probably spend some time discussing with the designer what can be improved. Maybe a nicer button hover animation?
+- More time spent thinking about design details, hover effects and other animations. For example, I noticed I'm still using the vercel favicon... About animations, I added some basic hover effects but I would probably spend some time discussing with the designer what can be improved (maybe a nicer button hover animation?).
