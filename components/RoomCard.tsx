@@ -19,7 +19,9 @@ export const RoomCard = ({ room }: { room: Room }) => {
             alt={room.name}
             fill
             // sizes="" todo: optimization
-            className="object-cover rounded-[11px] relative hover:scale-110 transition-all duration-500"
+            className={`object-cover rounded-[11px] relative ${
+              room.spots !== 0 && "hover:scale-110 transition-all duration-500"
+            }`}
           />
         </div>
         <div className="flex items-start justify-between text-lg mt-3 pb-11">
