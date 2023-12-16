@@ -18,7 +18,8 @@ export const RoomCard = ({ room }: { room: Room }) => {
             src={room.thumbnail}
             alt={room.name}
             fill
-            // sizes="" todo: optimization
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
             className={`object-cover rounded-[11px] relative ${
               room.spots !== 0 && "hover:scale-110 transition-all duration-500"
             }`}
