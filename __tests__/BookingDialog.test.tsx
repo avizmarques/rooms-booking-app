@@ -34,6 +34,14 @@ describe("Booking Dialog", () => {
       expect(getByTestId("booking-dialog")).toBeTruthy();
     });
 
+    it("should display a form", () => {
+      expect(getByTestId("booking-form")).toBeTruthy();
+    });
+
+    it("should display a spots input field", () => {
+      expect(getByLabelText(getByTestId("booking-form"), "Spots")).toBeTruthy();
+    });
+
     it("should not allow you to submit if the number of spots to book is more than the available number of spots", () => {
       const form = getByTestId("booking-form");
 
