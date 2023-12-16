@@ -1,6 +1,8 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 import { RoomCard } from "@/components/RoomCard";
+import { useRooms } from "@/context/roomsContext";
+import { useEffect } from "react";
 
 export type Room = {
   name: string;
@@ -9,8 +11,14 @@ export type Room = {
 };
 
 export default function Home({
-  rooms,
+  rooms: initialRooms,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { rooms, setRooms } = useRooms();
+
+  useEffect(() => {
+    setRooms(initialRooms);
+  }, [setRooms, initialRooms]);
+
   return (
     <main className="pt-[30px] pb-[60px] max-w-[1440px] px-4 md:px-[34px] mx-auto">
       <h1 className="text-4xl text-theme-black">Rooms</h1>
