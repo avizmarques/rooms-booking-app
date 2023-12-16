@@ -6,6 +6,7 @@ import * as useRooms from "@/context/roomsContext";
 
 describe("Home", () => {
   const useRoomsSpy = vi.spyOn(useRooms, "useRooms");
+  const setRoomsMock = vi.fn();
 
   describe("if the API returns an array with 3 elements", () => {
     const rooms = [
@@ -31,7 +32,7 @@ describe("Home", () => {
 
     useRoomsSpy.mockReturnValue({
       rooms,
-      setRooms: () => {},
+      setRooms: setRoomsMock,
       bookingRoom: null,
       setBookingRoom: () => {},
       updateRoom: () => {},
@@ -41,5 +42,9 @@ describe("Home", () => {
       const { getByTestId } = render(<Home rooms={rooms} />);
       expect(getByTestId("rooms-list").children.length).toBe(rooms.length);
     });
+
+    it("should call the setRooms function once", () => [
+      expect(setRoomsMock).toHaveBeenCalledTimes(1),
+    ]);
   });
 });
