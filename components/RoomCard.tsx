@@ -28,7 +28,9 @@ export const RoomCard = ({ room }: { room: Room }) => {
         <div className="flex items-start justify-between text-lg mt-3 pb-11">
           <div>
             <h2 className="text-lg font-bold text-theme-black">{room.name}</h2>
-            <p className="text-lg text-primary">{room.spots} spots remaining</p>
+            <p data-testid="spots-available" className="text-lg text-primary">
+              {room.spots} spots remaining
+            </p>
           </div>
 
           <div className="min-w-[90px] h-[29px] bg-primary rounded-[4px] text-white text-xs font-bold flex items-center justify-center group-hover:bg-fuchsia-900 transition-colors duration-500 group-disabled:bg-primary">
