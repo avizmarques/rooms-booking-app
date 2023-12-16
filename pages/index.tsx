@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 import { RoomCard } from "@/components/RoomCard";
 import { useRooms } from "@/context/roomsContext";
-import { useEffect } from "react";
 import { BookingDialog } from "@/components/BookingDialog";
 
 export type Room = {
@@ -15,7 +15,6 @@ export default function Home({
   rooms: initialRooms,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { rooms, setRooms } = useRooms();
-  const displayedRooms = rooms.length > 0 ? rooms : initialRooms;
 
   useEffect(() => {
     setRooms(initialRooms);
@@ -33,10 +32,11 @@ export default function Home({
         data-testid="rooms-list"
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5 mt-[72px]"
       >
-        {Boolean(displayedRooms) &&
-          displayedRooms.map(({ room, i }: { room: Room; i: number }) => (
-            <RoomCard room={room} key={i} />
-          ))}
+        {rooms.length > 0
+          ? rooms.map((room, i) => <RoomCard room={room} key={i} />)
+          : initialRooms.map(({ room, i }: { room: Room; i: number }) => (
+              <RoomCard room={room} key={i} />
+            ))}
       </ul>
 
       <BookingDialog />
