@@ -22,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Intro
 
-I spent 2 hours setting up and building this application, plus about 30 mins writing this README (and fixing a deployment build error).
+I spent 2 hours setting up and building this application, plus about 30 mins writing this README (and fixing a deployment build error). Before doing the assignment, I also spent some time building a solid plan (architecture, stack, etc).
 
 ## Stack used & decisions made
 
