@@ -1,10 +1,17 @@
-import { Room } from "@/pages";
 import Image from "next/image";
 
+import { useRooms } from "@/context/roomsContext";
+import { Room } from "@/pages";
+
 export const RoomCard = ({ room }: { room: Room }) => {
+  const { updateRoom } = useRooms();
+
   return (
     <li>
-      <button className="flex flex-col items-stretch w-full text-start group">
+      <button
+        onClick={() => updateRoom({ name: room.name, spotsToBook: 1 })}
+        className="flex flex-col items-stretch w-full text-start group"
+      >
         <div className="aspect-[328/220] overflow-hidden rounded-xl relative">
           <Image
             src={room.thumbnail}

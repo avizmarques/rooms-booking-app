@@ -14,6 +14,7 @@ export default function Home({
   rooms: initialRooms,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { rooms, setRooms } = useRooms();
+  const displayedRooms = rooms.length > 0 ? rooms : initialRooms;
 
   useEffect(() => {
     setRooms(initialRooms);
@@ -28,7 +29,7 @@ export default function Home({
       </p>
 
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mt-[72px]">
-        {rooms.map((room, i) => (
+        {displayedRooms.map((room, i) => (
           <RoomCard room={room} key={i} />
         ))}
       </ul>
