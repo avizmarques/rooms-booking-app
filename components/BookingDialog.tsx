@@ -4,8 +4,19 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { useRooms } from "@/context/roomsContext";
 
 export const BookingDialog = () => {
-  const { bookingRoom, setBookingRoom } = useRooms();
+  const { bookingRoom, setBookingRoom, updateRoom } = useRooms();
   const [spotsToBook, setSpotsToBook] = useState<string>("");
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (bookingRoom?.name && spotsToBook) {
+      updateRoom({ name: bookingRoom.name, spotsToBook: Number(spotsToBook) });
+    }
+
+    setSpotsToBook("");
+    setBookingRoom(null);
+  };
 
   return (
     <Dialog.Root
@@ -24,7 +35,7 @@ export const BookingDialog = () => {
               Spots available: {bookingRoom?.spots}
             </Dialog.Description>
 
-            <form className="mt-4 flex flex-col">
+            <form onSubmit={onSubmit} className="mt-4 flex flex-col">
               <div>
                 <label
                   htmlFor="name"
@@ -84,7 +95,11 @@ export const BookingDialog = () => {
 
               <button
                 type="submit"
-                className="mt-10 min-w-[90px] h-[40px] bg-primary hover:bg-fuchsia-900 transition-color duration-500 rounded-[4px] text-white font-bold flex items-center justify-center"
+                disabled={
+                  !Boolean(spotsToBook) ||
+                  Number(spotsToBook) > Number(bookingRoom?.spots)
+                }
+                className="mt-10 min-w-[90px] h-[40px] bg-primary hover:bg-fuchsia-900 transition-color duration-500 rounded-[4px] text-white font-bold flex items-center justify-center disabled:opacity-30 disabled:bg-primary"
               >
                 Book!
               </button>

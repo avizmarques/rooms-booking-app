@@ -10,7 +10,8 @@ export const RoomCard = ({ room }: { room: Room }) => {
     <li>
       <button
         onClick={() => setBookingRoom(room)}
-        className="flex flex-col items-stretch w-full text-start group"
+        disabled={room.spots === 0}
+        className="flex flex-col items-stretch w-full text-start group disabled:opacity-60"
       >
         <div className="aspect-[328/220] overflow-hidden rounded-xl relative">
           <Image
@@ -27,7 +28,7 @@ export const RoomCard = ({ room }: { room: Room }) => {
             <p className="text-lg text-primary">{room.spots} spots remaining</p>
           </div>
 
-          <div className="min-w-[90px] h-[29px] bg-primary rounded-[4px] text-white text-xs font-bold flex items-center justify-center group-hover:bg-fuchsia-900 transition-colors duration-500">
+          <div className="min-w-[90px] h-[29px] bg-primary rounded-[4px] text-white text-xs font-bold flex items-center justify-center group-hover:bg-fuchsia-900 transition-colors duration-500 group-disabled:bg-primary">
             Book!
           </div>
         </div>
