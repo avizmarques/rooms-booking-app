@@ -63,4 +63,6 @@ I spent 2 hours setting up and building this application, plus about 30 mins wri
 
 - Testing: I tested the main parts of the UI but I didn't make tests for my context hook which actually controls all the state, this should definitely be addressed.
 
+- More time improving the responsiveness: it's okay as it is but I realized later that I had originally thought to improve this at the end but didn't have time. The room cards on mobile could be improved: the book button should be below the text, and it should be full width, probably also a bit taller (height 40px).
+
 - More time spent thinking about design details, hover effects and other animations. For example, I noticed I'm still using the vercel favicon... About animations, I added some basic hover effects but I would probably spend some time discussing with the designer what can be improved (maybe a nicer button hover animation?).
